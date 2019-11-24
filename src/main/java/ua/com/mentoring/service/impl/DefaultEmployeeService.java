@@ -18,6 +18,11 @@ public class DefaultEmployeeService implements EmployeeService {
         repository = new DefaultEmployeeRepository();
     }
 
+    public DefaultEmployeeService(EmployeeDtoMapper mapper, EmployeeRepository repository) {
+        this.mapper = mapper;
+        this.repository = repository;
+    }
+
     @Override
     public Employee create(EmployeeDto employeeDto) {
         Employee employee = mapper.dataToEntity(employeeDto);
